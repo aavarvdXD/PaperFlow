@@ -1,2 +1,13 @@
-License: Creative Commons Attribution–NoDerivatives 4.0 (CC BY-ND 4.0)
-https://creativecommons.org/licenses/by-nd/4.0/
+Custom License
+
+Permission is granted to use and share this project in its original, unmodified form for non-commercial purposes only.
+
+You may modify the files for personal/private use only.
+
+You may NOT publish, distribute, or share modified versions of this project.
+
+You may NOT sell this project or any part of it, whether in original or modified form.
+
+Credit to the original author is appreciated but not required.
+
+This project is provided "as is", without warranty of any kind.
