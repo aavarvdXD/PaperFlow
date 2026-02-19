@@ -1,0 +1,52 @@
+PaperFlow/
+│
+├── main.py                # App entry point (launches window)
+├── requirements.txt      # pyside6, extras later
+├── README.md             # How to run PaperFlow
+│
+├── paperflow/            # Main app package
+│   ├── __init__.py
+│   │
+│   ├── app.py            # QApplication setup, global styles, theme
+│   ├── main_window.py   # QMainWindow (menus, toolbar, central widget)
+│   │
+│   ├── widgets/         # Custom UI widgets
+│   │   ├── __init__.py
+│   │   ├── editor.py    # QTextEdit subclass (your rich text editor)
+│   │   ├── toolbar.py   # Custom toolbar logic
+│   │   └── statusbar.py # Status bar (cursor pos, saved status)
+│   │
+│   ├── actions/         # QAction logic
+│   │   ├── __init__.py
+│   │   ├── file_actions.py    # New/Open/Save/Export
+│   │   ├── format_actions.py  # Bold/Italic/Underline/Font size
+│   │   └── edit_actions.py    # Undo/Redo/Find/Replace
+│   │
+│   ├── dialogs/         # Custom dialogs
+│   │   ├── __init__.py
+│   │   ├── about.py    # About PaperFlow dialog
+│   │   └── settings.py # Settings dialog (theme, autosave)
+│   │
+│   ├── services/        # Non-UI logic
+│   │   ├── __init__.py
+│   │   ├── file_io.py   # Load/save files, formats
+│   │   ├── exporter.py  # PDF / DOCX export (future DLC)
+│   │   └── autosave.py  # Autosave system
+│   │
+│   ├── resources/       # Icons, themes, fonts
+│   │   ├── icons/
+│   │   │   ├── save.png
+│   │   │   ├── open.png
+│   │   │   └── bold.png
+│   │   ├── themes/
+│   │   │   ├── light.qss
+│   │   │   └── dark.qss
+│   │   └── paperflow.qrc   # Qt resource file (optional)
+│   │
+│   └── utils/           # Helpers
+│       ├── __init__.py
+│       ├── paths.py     # App paths, config dirs
+│       └── constants.py # App name, version, defaults
+│
+└── tests/               # Optional tests
+    └── test_file_io.py
