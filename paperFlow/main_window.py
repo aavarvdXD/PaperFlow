@@ -69,10 +69,15 @@ class MainWindow(QMainWindow):
         self.zoom_reset_action.setShortcut("Ctrl+0")
         self.zoom_reset_action.triggered.connect(self.zoom_reset)
 
+        self.save_as_action = QAction("Save As..", self)
+        self.save_as_action.setShortcut("Ctrl+E")
+        self.save_as_action.triggered.connect(self.file_save_as)
+
         # Add actions to File menu
         file_menu.addAction(self.new_action)
         file_menu.addAction(self.open_action)
         file_menu.addAction(self.save_action)
+        file_menu.addAction(self.save_as_action)
         file_menu.addSeparator()
         file_menu.addAction(self.exit_action)
 
@@ -171,3 +176,20 @@ class MainWindow(QMainWindow):
             self.setWindowTitle(f"PaperFlow - {self._current_path}")
         except Exception as e:
             QMessageBox.critical(self, "Save Failed", str(e))
+
+    def file_save_as(self):
+        documents_dir = QStandardPaths.writableLocation(
+            QStandardPaths.DocumentsLocation
+        )
+        path, _ = QFileDialog.getSaveFileName(
+            self,
+            "Save File As",
+            documents_dir,
+            "PaperFlow Files (*.pflow);;Text Files (*.txt);;HTML Files (*.html *.htm);;All Files (*.*)"
+        )
+        if not path:
+            return
+        if "." not in path.rsplit("\\", 1)[-1]:
+            path += ".pflow"
+        self._current_path = path
+        self.file_save()
